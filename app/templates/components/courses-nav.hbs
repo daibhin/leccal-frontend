@@ -1,0 +1,22 @@
+<div class="nav flex with_columns">
+  <div class="title-btn">
+    <h2>NUIG</h2>
+  </div>
+  <ul class="list flex with_columns">
+    {{#each courses as |course|}}
+      <li class="nav-item">
+        {{#link-to 'courses.show' course.id}}
+          <img src='assets/images/courses.svg' class="nav-icon">
+          <span class="nav-label"><span class="pre-link">{{course.code}}</span> - {{course.name}}</span>
+        {{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+  <div class="account-link flex-bottom">
+    {{#if session.isAuthenticated}}
+      <button {{action 'invalidateSession'}}>Logout</button>
+    {{else}}
+      {{nav-item name='Account' icon='account' route='login'}}
+    {{/if}}
+  </div>
+</div>

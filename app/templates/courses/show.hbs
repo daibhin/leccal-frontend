@@ -1,0 +1,16 @@
+{{courses-nav courses=model}}
+<div class="content scrolls flex fill with_columns">
+  <div class="list-container flex with_columns">
+    {{search-bar}}
+    <div class="card-titles-container">
+      <ul class="card-titles-list">
+        <li>{{link-to 'Home' 'courses.show.index' course.id class="card-titles-list-link"}}</li>
+        <li>{{link-to 'Assignments' 'courses.show.assignments' course.id class="card-titles-list-link"}}</li>
+      <li>{{link-to 'Discussions' 'courses.show.discussions' course.id class="card-titles-list-link"}}</li>
+      </ul>
+    </div>
+    <div class="card">
+      {{outlet}}
+    </div>
+  </div>
+</div>

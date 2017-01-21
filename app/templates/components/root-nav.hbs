@@ -1,0 +1,20 @@
+<div class="nav flex with_columns">
+  <div class="title-btn">
+    <h2>NUIG</h2>
+  </div>
+  <ul class="list flex with_columns">
+    <li class="nav-item">
+      {{nav-item name='Home' icon='home' route='index'}}
+    </li>
+    <li class="nav-item">
+      {{nav-item name='Courses' icon='courses' route='courses'}}
+    </li>
+  </ul>
+  <div class="account-link flex-bottom">
+    {{#if session.isAuthenticated}}
+      <button {{action 'invalidateSession'}}>Logout</button>
+    {{else}}
+      {{nav-item name='Account' icon='account' route='login'}}
+    {{/if}}
+  </div>
+</div>

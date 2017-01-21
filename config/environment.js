@@ -16,6 +16,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    contentSecurityPolicy: {
+      'connect-src': "*"
     }
   };
 
@@ -41,6 +45,11 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 
+  }
+
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication: 'courses',
+    routeIfAlreadyAuthenticated: 'courses'
   }
 
   return ENV;

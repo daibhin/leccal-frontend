@@ -1,0 +1,5 @@
+Courses:
+
+{{#each model as |course|}}
+  ({{course.code}} {{link-to course.name 'calendar.course' course}})
+{{/each}}

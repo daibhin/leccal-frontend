@@ -1,0 +1,64 @@
+{{root-nav}}
+
+<div class="flex fill with_columns">
+
+  <div class="flex fill">
+    <div class="list-container flex with_columns">
+      <div class="card">
+        <div class="card-container">
+          <h3>Create Assignment</h3>
+          {{list-splitter name="General"}}
+        </div>
+
+        <div class="pad__lr__20">
+          <div class="form-item">
+            <label class="input-label">Course:</label>
+            <select>
+              <!-- {{#each courses as |course|}}
+                <option value={{course.id}}>{{course.name}}</option>
+              {{/each}} -->
+              <option>Course Name</option>
+              <option>Course Name</option>
+              <option>Course Name</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label class="input-label">Assignment Name:</label>
+            {{input value=model.name placeholder="Assignment Name"}}
+          </div>
+          <div class="form-item">
+            <label class="input-label">Description:</label>
+            {{textarea value=model.description placeholder="Assignment description" class="form-textarea"}}
+            <div>
+              <span class="small-option">Editor</span>
+              <span class="small-option selected">Plain Text</span>
+              <span class="small-option">Markdown</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card-container">
+          {{list-splitter name="Submission"}}
+          {{list-splitter name="Details"}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-end assignment-creator-progress">
+    <div class="flex">
+      <button {{action "decrementStep"}}>Back</button>
+    </div>
+    <div class="flex fill flex-center">
+      {{assignment-creator-progress-item number="2" label="DETAILS"}}
+      {{assignment-creator-progress-item number="1" label="DUE DATE"}}
+      {{assignment-creator-progress-item number="3" label="SUBMISSION"}}
+      {{assignment-creator-progress-item number="4" label="REVIEW"}}
+    </div>
+    <div class="flex">
+      <button {{action "incrementStep"}}>Next</button>
+    </div>
+  </div>
+
+
+</div>

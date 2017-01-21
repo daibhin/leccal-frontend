@@ -1,0 +1,10 @@
+<form {{action 'registerUser' on="submit"}}>
+  <!-- Name: {{input type="text" placeholder="Full name" value=model.name}} -->
+  Email: {{input type="text" placeholder="Email" value=model.email}}
+  Password: {{input type="password" placeholder="Password" value=model.password}}
+  <button type="submit">Sign up</button>
+</form>
+
+{{#if errorMessage}}
+  {{errorMessage}}
+{{/if}}

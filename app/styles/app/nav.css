@@ -1,0 +1,32 @@
+.nav {
+  background-color: $primary-grey;
+  padding: 0 15px;
+  height: 100vh;
+  width: 160px;
+}
+
+.title-btn {
+  display: inline;
+  padding-top: 10px;
+}
+
+.title-btn h2 {
+  display: inline;
+}
+
+.nav-item {
+  list-style-type: none;
+}
+
+.nav-item a.active {
+  color: $primary-green;
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.account-link {
+  padding-bottom: 10px;
+}
