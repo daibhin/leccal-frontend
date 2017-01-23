@@ -5,5 +5,5 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   startDate: DS.attr('date'),
   dueDate: DS.attr('date'),
-  // course: DS.belongsTo('course'),
+  course: DS.belongsTo('course'),
 });

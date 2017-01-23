@@ -29,11 +29,22 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    incrementStep() {
-      let currentStep = this.get('currentStepNum');
-      if (currentStep < this.get('numSteps')) {
-        this.set('currentStepNum', currentStep + 1);
-      }
+
+    selectCourse(courseId) {
+      let course = this.get('courses').find((course) => {
+        return course.get('id') == courseId;
+      });
+      let assignment = this.get('assignment');
+      assignment.set('course', course);
+    },
+
+    saveAssignment() {
+      let assignment = this.get('assignment');
+      assignment.save().then((assignment) => {
+        let courseId = assignment.get('course.id');
+        let assignmentId = assignment.get('id');
+        this.transitionToRoute('courses.show.assignments.show', courseId, assignmentId);
+      });
     },
     decrementStep() {
       let currentStep = this.get('currentStepNum');

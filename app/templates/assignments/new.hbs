@@ -13,13 +13,11 @@
         <div class="pad__lr__20">
           <div class="form-item">
             <label class="input-label">Course:</label>
-            <select>
-              <!-- {{#each courses as |course|}}
-                <option value={{course.id}}>{{course.name}}</option>
-              {{/each}} -->
-              <option>Course Name</option>
-              <option>Course Name</option>
-              <option>Course Name</option>
+            <select onchange={{action "selectCourse" value="target.value"}}>
+              <option>Select a course</option>
+              {{#each courses as |courseChoice|}}
+                <option value={{courseChoice.id}}>{{courseChoice.name}}</option>
+              {{/each}}
             </select>
           </div>
           <div class="form-item">
@@ -56,7 +54,8 @@
       {{assignment-creator-progress-item number="4" label="REVIEW"}}
     </div>
     <div class="flex">
-      <button {{action "incrementStep"}}>Next</button>
+      <button {{action "saveDraft"}}>Save draft</button>
+      <button {{action "saveAssignment"}}>Create</button>
     </div>
   </div>
 
