@@ -8,6 +8,10 @@
     "interact": "1.2.5",
     "jquery-simulate": "1.0.1",
     "lodash": "3.10.0",
-    "fontawesome": "~4.5.0"
+    "fontawesome": "~4.5.0",
+    "summernote": "~0.7.0",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "~4.5.0",
+    "showdown": "^1.6.0"
   }
 }

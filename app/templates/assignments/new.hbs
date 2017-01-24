@@ -32,17 +32,33 @@
             {{input value=model.name placeholder="Assignment Name"}}
           </div>
           <div class="form-item">
-            <label class="input-label">Description:</label>
-            {{textarea value=model.description placeholder="Assignment description" class="form-textarea"}}
-            <div>
-              <span class="small-option">Editor</span>
-              <span class="small-option selected">Plain Text</span>
-              <span class="small-option">Markdown</span>
+            <div class="flex with_columns assignment-description-editor-container">
+              <div class="flex fill">
+                {{#if usingWYSIWYG}}
+                  <div class="flex with_columns">
+                      <label class="input-label">Description:</label>
+                      {{summer-note height=editorHeight content=model.description airMode=false focus=false header="Example" disabled=editingDisabled disabledOptions=disabledOptions}}
+                  </div>
+                {{else}}
+                  <div class="flex with_columns half">
+                    <label class="input-label">Description:</label>
+                    {{textarea value=model.description class="flex fill"}}
+                  </div>
+                  <div class="flex with_columns half pad__lr__20">
+                    <label class="input-label">Preview:</label>
+                    <div class="flex with_columns scrolls fill input-disabled">
+                      {{markdown-to-html model.description}}
+                    </div>
+                  </div>
+                {{/if}}
+                </div>
+              <div>
+                <button class="btn btn-small-option {{if usingWYSIWYG 'selected'}}" {{action "toggleEditorType"}}>Editor</button>
+                <button class="btn btn-small-option {{if usingMarkdown 'selected'}}" {{action "toggleEditorType"}}>Markdown</button>
+              </div>
             </div>
           </div>
         </div>
-
-
         <div class="card-container">
           {{list-splitter name="Submission"}}
           {{list-splitter name="Details"}}

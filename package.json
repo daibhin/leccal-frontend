@@ -23,6 +23,7 @@
     "broccoli-asset-rev": "^2.4.2",
     "broccoli-sass": "0.7.0",
     "ember-ajax": "0.7.1",
+    "ember-bootstrap": "1.0.0-alpha.3",
     "ember-calendar": "0.3.7",
     "ember-cli": "2.5.0",
     "ember-cli-app-version": "^1.0.0",
@@ -35,7 +36,9 @@
     "ember-cli-moment-shim": "1.1.0",
     "ember-cli-qunit": "^1.4.0",
     "ember-cli-release": "0.2.8",
+    "ember-cli-showdown": "2.10.0",
     "ember-cli-sri": "^2.1.0",
+    "ember-cli-summernote": "^0.1.20",
     "ember-cli-uglify": "^1.2.0",
     "ember-component-inbound-actions": "0.0.4",
     "ember-data": "^2.5.0",
@@ -47,6 +50,7 @@
     "ember-rl-dropdown": "0.7.0",
     "ember-simple-auth": "1.1.0-beta.4",
     "liquid-fire": "0.27.0",
-    "loader.js": "^4.0.1"
+    "loader.js": "^4.0.1",
+    "showdown": "1.6.0"
   }
 }

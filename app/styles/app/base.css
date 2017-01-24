@@ -31,7 +31,7 @@ h4 {
   text-transform: uppercase;
 }
 
-input, textarea, select {
+input, textarea, select, .input-disabled {
   color: $dark-grey;
   font-size: 14px;
   border-radius: 2px;
@@ -74,16 +74,6 @@ select:focus {
   color: $dark-grey;
   font-weight: 500;
   margin-right: 10px;
-}
-
-.small-option {
-  font-size: 13px;
-  margin-right: 8px;
-  color: $medium-grey;
-}
-
-.small-option.selected {
-  color: $primary-green;
 }
 
 .pad__lr__20 {
@@ -260,9 +250,24 @@ a {
   background-color: #4dc5a0;
   color: white;
   border-radius: 2px;
-  height: 30px;
+  height: 35px;
   line-height: 30px;
-  padding: 5px 15px;
+  padding: 3px 15px;
+}
+
+.btn-small-option:focus {
+  outline: none;
+}
+
+.btn-small-option {
+  padding: 0;
+  font-size: 13px;
+  margin-right: 8px;
+  color: $medium-grey;
+}
+
+.btn-small-option.selected {
+  color: $primary-green;
 }
 
 .assignments-list {
@@ -278,6 +283,10 @@ a {
 /* Assignments */
 .assignment-container {
   margin: 30px;
+}
+
+.assignment-description-editor-container {
+  height: 280px;
 }
 
 .assignment-header {

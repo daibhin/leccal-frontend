@@ -3,33 +3,15 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   assignment: Ember.computed.reads('model'),
 
-  numSteps: 4,
-  currentStepNum: 1,
-  steps: {
-    1: {
-      title: 'DETAILS',
-      componentName: 'assignments/assignment-creator-details',
-    },
-    2: {
-      title: 'Calendar',
-      componentName: 'assignments/assignment-creator-calendar',
-    },
-    3: {
-      title: 'Submission',
-      componentName: 'assignments/assignment-creator-details',
-    },
-    4: {
-      title: 'Review',
-      componentName: 'assignments/assignment-creator-details',
-    }
-  },
-
-  currentStep: Ember.computed('currentStepNum', function(){
-    return this.get('steps')[this.get('currentStepNum')];
-  }),
+  editorHeight: 150,
+  editingDisabled: false,
+  usingMarkdown: false,
+  usingWYSIWYG: Ember.computed.not('usingMarkdown'),
 
   actions: {
-
+    toggleEditorType() {
+      this.toggleProperty('usingMarkdown');
+    },
     selectCourse(courseId) {
       let course = this.get('courses').find((course) => {
         return course.get('id') == courseId;
@@ -37,7 +19,6 @@ export default Ember.Controller.extend({
       let assignment = this.get('assignment');
       assignment.set('course', course);
     },
-
     saveAssignment() {
       let assignment = this.get('assignment');
       assignment.save().then((assignment) => {
@@ -46,11 +27,9 @@ export default Ember.Controller.extend({
         this.transitionToRoute('courses.show.assignments.show', courseId, assignmentId);
       });
     },
-    decrementStep() {
-      let currentStep = this.get('currentStepNum');
-      if (currentStep > 1) {
-        this.set('currentStepNum', currentStep - 1);
-      }
-    }
+    changeHeight(someObject) {
+      var height = someObject.doSomeCalculationToGetHeight();
+       this.set('contentHeight', height)
+    },
   }
 });
