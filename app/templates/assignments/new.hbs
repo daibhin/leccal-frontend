@@ -4,14 +4,14 @@
   <div class="flex fill">
     <div class="list-container flex with_columns">
       <div class="card">
-        <div class="card-container">
+        <div class="card-container-top">
           <div class="flex">
             <div class="flex fill">
               <h3>Create Assignment</h3>
             </div>
             <div class="flex end">
-              <button {{action "saveDraft"}}>Save draft</button>
-              <button {{action "saveAssignment"}}>Create</button>
+              <button class='btn btn-secondary' {{action "saveDraft"}}>Save draft</button>
+              <button class='btn btn-primary' {{action "saveAssignment"}}>Publish Assignment</button>
             </div>
           </div>
           {{list-splitter name="General"}}
@@ -59,9 +59,30 @@
             </div>
           </div>
         </div>
-        <div class="card-container">
+        <div class="card-container-bottom">
           {{list-splitter name="Submission"}}
           {{list-splitter name="Details"}}
+
+          <div class="flex with_rows">
+            <div class="flex with_columns two-thirds">
+              <label class="input-label">Calendar:</label>
+
+              {{#power-calendar-range
+                selected=range
+                onCenterChange=(action (mut foo) value="date")
+                onSelect=(action (mut range) value="moment") as |calendar|}}
+                {{calendar.nav}}
+                {{calendar.days}}
+              {{/power-calendar-range}}
+            </div>
+            <div class="flex with_columns third">
+              <label class="input-label">Assignments:</label>
+              <div class="flex with_columns scrolls fill input-disabled">
+                {{test}}
+                {{markdown-to-html model.description}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -80,6 +80,10 @@ select:focus {
   padding: 0 20px;
 }
 
+.pad__b__20 {
+  padding-bottom: 20px;
+}
+
 .content {
   height: 100vh;
   background-color: #edf4f7;
@@ -131,6 +135,12 @@ select:focus {
   width: 33.33%;
   min-width: 33.33%;
   max-width: 33.33%;
+}
+
+.flex.two-thirds {
+  width: 66.66%;
+  min-width: 66.66%;
+  max-width: 66.66%;
 }
 
 .flex.half {
@@ -255,6 +265,25 @@ a {
   padding: 3px 15px;
 }
 
+.btn-primary:hover {
+  background-color: #4dc5a0;
+}
+
+.btn-secondary {
+  font-weight: bold;
+  font-size: 12px;
+  background-color: white;
+  color: #4dc5a0;
+  border-radius: 2px;
+  height: 35px;
+  line-height: 30px;
+  padding: 3px 15px;
+}
+
+.btn-secondary:hover {
+  color: #4dc5a0;
+}
+
 .btn-small-option:focus {
   outline: none;
 }
@@ -310,8 +339,12 @@ a {
   border-radius: 2px;
 }
 
-.card-container {
+.card-container-top {
   padding: 20px 20px 0 20px;
+}
+
+.card-container-bottom {
+  padding: 0 20px 20px 20px;
 }
 
 .card-titles-container {

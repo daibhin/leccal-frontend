@@ -1,12 +1,36 @@
 import Ember from 'ember';
+import { task } from 'ember-concurrency';
 
 export default Ember.Controller.extend({
+  ajax: Ember.inject.service(),
   assignment: Ember.computed.reads('model'),
 
   editorHeight: 150,
   editingDisabled: false,
   usingMarkdown: false,
   usingWYSIWYG: Ember.computed.not('usingMarkdown'),
+
+  _calendarRangeChange: Ember.observer('range', function() {
+    this.get('performCalendarChecker').perform();
+  }),
+
+  performCalendarChecker: task(function * () {
+    let startDate = this.get('range.start');
+    let endDate = this.get('range.end');
+    let courseId = this.get('assignment.course.id');
+    if (startDate != null && endDate != null && courseId != undefined) {
+      return this.get('ajax').request('api/v1/calendars', {
+        method: 'GET',
+        data: {
+          startDate: this.get('range.start').unix(),
+          endDate: this.get('range.end').unix(),
+          course_id: this.get('assignment.course.id')
+        }
+      }).then((response) => {
+        debugger;
+      });
+    }
+  }),
 
   actions: {
     toggleEditorType() {
@@ -18,6 +42,7 @@ export default Ember.Controller.extend({
       });
       let assignment = this.get('assignment');
       assignment.set('course', course);
+      this.get('performCalendarChecker').perform();
     },
     saveAssignment() {
       let assignment = this.get('assignment');

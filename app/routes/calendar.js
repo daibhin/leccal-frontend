@@ -13,7 +13,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         }
       })
       .then(response => {
-        debugger;
       });
   }
 });
