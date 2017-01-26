@@ -72,7 +72,13 @@
                 onCenterChange=(action (mut foo) value="date")
                 onSelect=(action (mut range) value="moment") as |calendar|}}
                 {{calendar.nav}}
-                {{calendar.days}}
+                {{#calendar.days as |day|}}
+                  {{#if (array-contains assignmentDates day.date)}}
+                    <strong class="pink-text" style="color: red;">{{day.number}}</strong>
+                  {{else}}
+                    {{day.number}}
+                  {{/if}}
+                {{/calendar.days}}
               {{/power-calendar-range}}
             </div>
             <div class="flex with_columns third">

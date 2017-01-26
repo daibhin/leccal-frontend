@@ -27,9 +27,14 @@ export default Ember.Controller.extend({
           course_id: this.get('assignment.course.id')
         }
       }).then((response) => {
+        this.set('existingAssignments', response.calendar_events);
         debugger;
       });
     }
+  }),
+
+  assignmentDates: Ember.computed.map('existingAssignments', (assignment) => {
+    return assignment.get('dueDate');
   }),
 
   actions: {
