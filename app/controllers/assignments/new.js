@@ -10,25 +10,25 @@ export default Ember.Controller.extend({
   usingMarkdown: false,
   usingWYSIWYG: Ember.computed.not('usingMarkdown'),
 
-  _calendarRangeChange: Ember.observer('range', function() {
-    this.get('performCalendarChecker').perform();
+  calculateAssignmentsAffected: Ember.observer('range', function() {
+    let dateRange = this.get('range');
+    let startDate = dateRange.start;
+    let endDate = dateRange.end;
+    if(startDate && endDate) {
+      debugger;
+    }
   }),
 
-  performCalendarChecker: task(function * () {
-    let startDate = this.get('range.start');
-    let endDate = this.get('range.end');
+  getAssignmentsDue: task(function * () {
     let courseId = this.get('assignment.course.id');
-    if (startDate != null && endDate != null && courseId != undefined) {
+    if (courseId != undefined) {
       return this.get('ajax').request('api/v1/calendars', {
         method: 'GET',
         data: {
-          startDate: this.get('range.start').unix(),
-          endDate: this.get('range.end').unix(),
-          course_id: this.get('assignment.course.id')
+          course_id: courseId
         }
       }).then((response) => {
         this.set('existingAssignments', response.calendar_events);
-        debugger;
       });
     }
   }),
@@ -41,14 +41,16 @@ export default Ember.Controller.extend({
     toggleEditorType() {
       this.toggleProperty('usingMarkdown');
     },
+    
     selectCourse(courseId) {
       let course = this.get('courses').find((course) => {
         return course.get('id') == courseId;
       });
       let assignment = this.get('assignment');
       assignment.set('course', course);
-      this.get('performCalendarChecker').perform();
+      this.get('getAssignmentsDue').perform();
     },
+
     saveAssignment() {
       let assignment = this.get('assignment');
       assignment.save().then((assignment) => {

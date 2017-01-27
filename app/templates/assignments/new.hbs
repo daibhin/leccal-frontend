@@ -67,26 +67,24 @@
             <div class="flex with_columns two-thirds">
               <label class="input-label">Calendar:</label>
 
+
               {{#power-calendar-range
+                center=center
                 selected=range
-                onCenterChange=(action (mut foo) value="date")
-                onSelect=(action (mut range) value="moment") as |calendar|}}
-                {{calendar.nav}}
-                {{#calendar.days as |day|}}
+                onCenterChange=(action (mut center) value="date")
+                onSelect=(action (mut range) value="moment") as |cal|}}
+                {{cal.nav}}
+                {{#cal.days as |day|}}
                   {{#if (array-contains assignmentDates day.date)}}
                     <strong class="pink-text" style="color: red;">{{day.number}}</strong>
                   {{else}}
                     {{day.number}}
                   {{/if}}
-                {{/calendar.days}}
+                {{/cal.days}}
               {{/power-calendar-range}}
             </div>
             <div class="flex with_columns third">
-              <label class="input-label">Assignments:</label>
-              <div class="flex with_columns scrolls fill input-disabled">
-                {{test}}
-                {{markdown-to-html model.description}}
-              </div>
+              This is a test
             </div>
           </div>
         </div>
