@@ -3,6 +3,7 @@ $primary-green: #4dc5a0;
 $dark-grey: #303E50;
 $medium-grey: #A7B0BD;
 $light-grey: #E3E6EA;
+$pink: #FF0789;
 
 
 html, body {
@@ -328,6 +329,10 @@ a {
   padding: 20px;
   background-color: white;
   border-bottom: 1px solid #dbe2e5;
+}
+
+.calendar-day-highlighted {
+  color: $pink;
 }
 
 /* Cards */

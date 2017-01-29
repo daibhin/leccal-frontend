@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { task } from 'ember-concurrency';
 
 export default Ember.Controller.extend({
   ajax: Ember.inject.service(),
@@ -12,33 +11,6 @@ export default Ember.Controller.extend({
   usingMarkdown: false,
   usingWYSIWYG: Ember.computed.not('usingMarkdown'),
 
-  calculateAssignmentsAffected: Ember.observer('range', function() {
-    let dateRange = this.get('range');
-    let startDate = dateRange.start;
-    let endDate = dateRange.end;
-    if(startDate && endDate) {
-      debugger;
-    }
-  }),
-
-  getAssignmentsDue: task(function * () {
-    let courseId = this.get('assignment.course.id');
-    if (courseId != undefined) {
-      return this.get('ajax').request('api/v1/calendars', {
-        method: 'GET',
-        data: {
-          course_id: courseId
-        }
-      }).then((response) => {
-        this.set('assignmentCounts', response.assignments_count);
-      });
-    }
-  }),
-
-  assignmentDates: Ember.computed.map('existingAssignments', (assignment) => {
-    return assignment.get('dueDate');
-  }),
-
   actions: {
     toggleEditorType() {
       this.toggleProperty('usingMarkdown');
@@ -48,13 +20,16 @@ export default Ember.Controller.extend({
       this.toggleProperty('showingAssignmentCalendar');
     },
 
+    toggleLateSubmissions() {
+      this.toggleProperty('allowLateSubmissions');
+    },
+
     selectCourse(courseId) {
       let course = this.get('courses').find((course) => {
         return course.get('id') == courseId;
       });
       let assignment = this.get('assignment');
       assignment.set('course', course);
-      this.get('getAssignmentsDue').perform();
     },
 
     saveAssignment() {

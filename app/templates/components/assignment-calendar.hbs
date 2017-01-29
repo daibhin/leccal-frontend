@@ -1,0 +1,19 @@
+<div class="flex with_columns">
+  <label class="input-label">Calendar:</label>
+  {{#power-calendar
+    center=center
+    onCenterChange=(action (mut center) value="date")
+    onSelect=(action 'handleDateChange' value="moment") as |calendar|}}
+    {{calendar.nav}}
+    {{#calendar.days as |day|}}
+      {{#if (array-contains assignmentDates day.id)}}
+        <strong class="calendar-day-highlighted">{{day.number}}</strong>
+      {{else}}
+        {{day.number}}
+      {{/if}}
+    {{/calendar.days}}
+  {{/power-calendar}}
+  {{#if (array-contains assignmentDates selectedDate)}}
+    <span>{{numStudentsAffected}} student(s) have assignments due on this day</span>
+  {{/if}}
+</div>

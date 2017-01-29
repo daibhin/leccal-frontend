@@ -63,40 +63,24 @@
           {{list-splitter name="Submission"}}
           {{list-splitter name="Details"}}
 
-          <label class="input-label">Start Date:</label>
-          {{date-picker date=model.startDate}}
-
-          <label class="input-label">Due Date:</label>
-          {{date-picker date=model.dueDate}}
-
-          {{#if showingAssignmentCalendar}}
-            <div class="flex with_rows">
-              <div class="flex with_columns two-thirds">
-                <label class="input-label">Calendar:</label>
 
 
-                {{#power-calendar-range
-                  center=center
-                  selected=range
-                  onCenterChange=(action (mut center) value="date")
-                  onSelect=(action (mut range) value="moment") as |cal|}}
-                  {{cal.nav}}
-                  {{#cal.days as |day|}}
-                    {{#if (array-contains assignmentDates day.date)}}
-                      <strong class="pink-text" style="color: red;">{{day.number}}</strong>
-                    {{else}}
-                      {{day.number}}
-                    {{/if}}
-                  {{/cal.days}}
-                {{/power-calendar-range}}
-              </div>
-              <div class="flex with_columns third">
-                This is a test
-              </div>
+          <div class="flex with_rows">
+            <div class="flex with_columns half">
+              <label class="input-label">Start Date:</label>
+              {{date-picker date=model.startDate}}
+
+              <label class="input-label">Due Date:</label>
+              {{date-picker date=model.dueDate}}
             </div>
-          {{else}}
-            <button class="btn btn-small-option selected" {{action "toggleAssignmentCalendar"}}>Show other assignments</button>
-          {{/if}}
+            <div class="flex with_columns half">
+              {{#if showingAssignmentCalendar}}
+                {{assignment-calendar assignment=model}}
+              {{else}}
+                <button class="btn btn-small-option selected" {{action "toggleAssignmentCalendar"}}>Show other assignments</button>
+              {{/if}}
+            </div>
+          </div>
 
         </div>
       </div>
