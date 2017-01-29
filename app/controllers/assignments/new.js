@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
   ajax: Ember.inject.service(),
   assignment: Ember.computed.reads('model'),
 
+  showingAssignmentCalendar: false,
+
   editorHeight: 150,
   editingDisabled: false,
   usingMarkdown: false,
@@ -28,7 +30,7 @@ export default Ember.Controller.extend({
           course_id: courseId
         }
       }).then((response) => {
-        this.set('existingAssignments', response.calendar_events);
+        this.set('assignmentCounts', response.assignments_count);
       });
     }
   }),
@@ -41,7 +43,11 @@ export default Ember.Controller.extend({
     toggleEditorType() {
       this.toggleProperty('usingMarkdown');
     },
-    
+
+    toggleAssignmentCalendar() {
+      this.toggleProperty('showingAssignmentCalendar');
+    },
+
     selectCourse(courseId) {
       let course = this.get('courses').find((course) => {
         return course.get('id') == courseId;

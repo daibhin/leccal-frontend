@@ -402,3 +402,7 @@ a {
   display: block;
   margin: 15px auto;
 }
+
+.date-picker {
+  width: 250px;
+}

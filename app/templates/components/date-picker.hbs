@@ -1,0 +1,19 @@
+{{#basic-dropdown as |dropdown|}}
+  {{#dropdown.trigger
+    class="date-picker"
+  }}
+    <input type="text"
+      value={{if date (moment-format date 'DD-MM-YYYY')}}
+      readonly>
+  {{/dropdown.trigger}}
+  {{#dropdown.content}}
+    {{#power-calendar
+      center=center
+      onCenterChange=(action (mut center) value="date")
+      selected=date
+      onSelect=(action (mut date) value="date") as |calendar|}}
+      {{calendar.nav}}
+      {{calendar.days}}
+    {{/power-calendar}}
+  {{/dropdown.content}}
+{{/basic-dropdown}}
