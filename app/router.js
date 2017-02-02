@@ -21,7 +21,11 @@ Router.map(function() {
         this.route('show', { path: ':assignment_id' });
       });
       this.route('discussions', function() {
-        this.route('show', { path: ':assignment_id' });
+        this.route('topic', { path: ':topic_id' }, function() {
+          this.route('post', { path: ':post_id' });
+          this.route('new');
+        });
+        this.route('new');
       });
     });
   });

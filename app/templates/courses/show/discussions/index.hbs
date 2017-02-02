@@ -1,6 +1,6 @@
 <div class="card-container">
   <div class="flex end">
-  {{link-to 'New Topic' (query-params forum_id=model.forum.id) class='btn btn-primary'}}
+  {{link-to 'New Topic' 'courses.show.discussions.topic.new' (query-params forum_id=model.forum.id) class='btn btn-primary'}}
   </div>
 
   <div class="splitter flex fill flex-center">
@@ -10,45 +10,10 @@
 </div>
 
 <ul class="list list-normal flex with_columns">
-  {{#each model.assignments as |assignment|}}
-    {{#link-to 'courses.show.discussions.topic.show' assignment class='list-normal-item block'}}
-      <span class="pre-link">{{assignment.dueDate}}</span>
-      <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
-    {{/link-to}}
-  {{/each}}
-</ul>
-
-
-
-
-<div class="card-container">
-  <div class="flex end">
-  {{link-to 'New Assignment' 'assignments.new' (query-params course_id=model.id) class='btn btn-primary'}}
-  </div>
-
-  <div class="splitter flex fill flex-center">
-    <span class="splitter-text">Active</span>
-    <span class="flex fill splitter-line"></span>
-  </div>
-</div>
-
-<ul class="list list-normal flex with_columns">
-  {{#each model.assignments as |assignment|}}
-    {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
-      <span class="pre-link">{{assignment.dueDate}}</span>
-      <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
-    {{/link-to}}
-    {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
-      <span class="pre-link">{{assignment.dueDate}}</span>
-      <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
-    {{/link-to}}
-    {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
-      <span class="pre-link">{{assignment.dueDate}}</span>
-      <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
+  {{#each model.forum.topics as |topic|}}
+    {{#link-to 'courses.show.discussions.topic' topic class='list-normal-item block'}}
+      <h3>{{topic.name}}</h3>
+      <p>{{topic.description}}</p>
     {{/link-to}}
   {{/each}}
 </ul>
