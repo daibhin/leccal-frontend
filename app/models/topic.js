@@ -2,7 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  code: DS.attr('string'),
-  assignments: DS.hasMany('assignment'),
+  description: DS.attr('string'),
   forum: DS.belongsTo('forum'),
+  posts: DS.hasMany('post'),
 });
