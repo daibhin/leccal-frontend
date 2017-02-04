@@ -1,7 +1,18 @@
 <div class="card-container">
-  <div class="flex end">
-  {{link-to 'New Topic' 'courses.show.discussions.topic.new' (query-params forum_id=model.forum.id) class='btn btn-primary'}}
-  </div>
+
+  {{#if showingNewTopicForm}}
+    {{input
+    type="text"
+    placeholder="Add a new topic"
+    value=newTopicTitle}}
+    {{input
+    type="text"
+    placeholder="Write a description for the topic"
+    value=newTopicDescription}}
+    <button class='btn btn-primary' {{action "createTopic" }}>Create Topic</button>
+  {{else}}
+    <button class='btn btn-primary' {{action "showNewTopicForm" }}>New Topic</button>
+  {{/if}}
 
   <div class="splitter flex fill flex-center">
     <span class="splitter-text">Topics</span>

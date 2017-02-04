@@ -12,6 +12,7 @@
     "summernote": "~0.7.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "~4.5.0",
-    "showdown": "^1.6.0"
+    "showdown": "^1.6.0",
+    "active-model-adapter": "^2.1.1"
   }
 }
