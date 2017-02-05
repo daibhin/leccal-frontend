@@ -3,7 +3,7 @@ import { ActiveModelSerializer } from 'active-model-adapter';
 
 export default ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
   attrs: {
-    posts: { embedded: 'always' },
-    forum: { serialize: 'id' },
+    post: { deserialize: 'records', serialize: 'id' },
+    user: { deserialize: 'records', serialize: 'id' },
   }
 });

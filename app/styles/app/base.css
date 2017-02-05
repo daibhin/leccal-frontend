@@ -411,3 +411,9 @@ a {
 .date-picker {
   width: 250px;
 }
+
+/* Discussions */
+.comment-box {
+  width: 100%;
+  margin-right: 15px;
+}
