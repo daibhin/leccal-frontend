@@ -1,6 +1,6 @@
 {{courses-nav courses=model}}
 <div class="content scrolls flex fill with_columns">
-  <div class="list-container flex with_columns">
+  <div class="list-container flex with_columns screen-height">
     {{search-bar}}
     <div class="card-titles-container">
       <ul class="card-titles-list">
@@ -9,7 +9,7 @@
       <li>{{link-to 'Discussions' 'courses.show.discussions' course.id class="card-titles-list-link"}}</li>
       </ul>
     </div>
-    <div class="card">
+    <div class="card flex with_columns fill">
       {{outlet}}
     </div>
   </div>

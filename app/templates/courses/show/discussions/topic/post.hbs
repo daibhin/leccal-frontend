@@ -1,14 +1,8 @@
 <div class="card-container">
   <h3>{{post.title}}</h3>
 </div>
-
-<ul class="list list-normal flex with_columns">
-  {{#each post.comments as |comment|}}
-    <p class="list-normal-item block">{{comment.user.email}}: {{comment.text}}</p>
-  {{/each}}
-</ul>
-
-<div class="flex with_rows">
+{{discussion-messages post=post}}
+<div class="comment-editor flex with_rows">
   <div class="flex fill">
     {{input value=commentText placeholder="Add comment" class='comment-box'}}
   </div>

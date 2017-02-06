@@ -1,0 +1,7 @@
+<div id="message-list">
+  <ul class="list list-normal flex with_columns">
+    {{#each comments as |comment|}}
+      <p class="list-normal-item block">{{comment.user.email}}: {{comment.text}}</p>
+    {{/each}}
+  </ul>
+</div>

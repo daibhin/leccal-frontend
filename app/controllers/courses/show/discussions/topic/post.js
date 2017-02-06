@@ -8,24 +8,6 @@ export default Ember.Controller.extend({
   comments: Ember.computed.reads('post.comments'),
   page: 1,
 
-  init() {
-    this._super(...arguments);
-    this.get('fetchComments').perform();
-  },
-
-  fetchComments: task(function * () {
-    return this.get('ajax').request('api/v1/comments', {
-      method: 'GET',
-      data: {
-        post_id: this.get('post.id'),
-        page: this.get('commentIndex'),
-      }
-    }).then((response) => {
-      this.store.pushPayload(response);
-      this.set('commentIndex', this.get('page') + 1);
-    });
-  }),
-
   actions: {
     addComment() {
       let text = this.get('commentText');
