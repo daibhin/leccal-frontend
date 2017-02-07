@@ -5,19 +5,30 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   ajax: Ember.inject.service(),
   classNames: ['flex', 'with_columns', 'fill', 'scrolls'],
+  attributeBindings: ['id'],
+  id: 'discussion-messages-component',
+
 
   post: Ember.computed.reads('model'),
   comments: Ember.computed.reads('post.comments'),
+  commentSortProperties: ['id:asc'],
+  sortedComments: Ember.computed.sort('comments', 'commentSortProperties'),
   page: 1,
 
-  didInsertElement() {
+  init() {
     this._super(...arguments);
     this.get('fetchComments').perform();
   },
 
   didRender() {
-    let messageList = document.getElementById('message-list');
+    let messageList = document.getElementById('discussion-messages-component');
     messageList.scrollTop = messageList.scrollHeight;
+    messageList.addEventListener('scroll', event => {
+      let element = event.target;
+      if (element.scrollTop == 0) {
+        this.get('fetchComments').perform();
+      }
+    });
   },
 
   fetchComments: task(function * () {
@@ -25,11 +36,11 @@ export default Ember.Component.extend({
       method: 'GET',
       data: {
         post_id: this.get('post.id'),
-        page: this.get('commentIndex'),
+        page: this.get('page'),
       }
     }).then((response) => {
       this.get('store').pushPayload(response);
-      this.set('commentIndex', this.get('page') + 1);
+      this.set('page', this.get('page') + 1);
     });
   }),
 });
