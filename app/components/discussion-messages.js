@@ -4,7 +4,7 @@ import { task } from 'ember-concurrency';
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   ajax: Ember.inject.service(),
-  classNames: ['flex', 'with_columns', 'fill', 'scrolls'],
+  classNames: ['scrolling-component scrolls'],
   attributeBindings: ['id'],
   id: 'discussion-messages-component',
 
@@ -18,17 +18,6 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     this.get('fetchComments').perform();
-  },
-
-  didRender() {
-    let messageList = document.getElementById('discussion-messages-component');
-    messageList.scrollTop = messageList.scrollHeight;
-    messageList.addEventListener('scroll', event => {
-      let element = event.target;
-      if (element.scrollTop == 0) {
-        this.get('fetchComments').perform();
-      }
-    });
   },
 
   fetchComments: task(function * () {
