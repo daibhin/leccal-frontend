@@ -8,7 +8,10 @@ export default Ember.Component.extend({
     scrollingComponent.addEventListener('scroll', event => {
       let element = event.target;
       if (element.scrollTop == 0) {
-        this.sendAction('reachedTop');
+        debugger;
+        this.sendAction('reachedTop').then(() => {
+          debugger;
+        });
       }
     });
   },

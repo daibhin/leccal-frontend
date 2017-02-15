@@ -11,10 +11,13 @@
     </li>
   </ul>
   <div class="account-link flex-bottom">
+
     {{#if session.isAuthenticated}}
+      Hi, {{session.email}}
       <button {{action 'invalidateSession'}}>Logout</button>
     {{else}}
       {{nav-item name='Account' icon='account' route='login'}}
+      {{#link-to "login"}}Login{{/link-to}}
     {{/if}}
   </div>
 </div>

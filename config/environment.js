@@ -23,6 +23,16 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise',
+    routeAfterAuthentication: 'courses'
+  }
+
+  ENV['simple-auth-devise'] = {
+    tokenAttributeName: 'token',
+    identificationAttributeName: 'email'
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -45,11 +55,6 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 
-  }
-
-  ENV['ember-simple-auth'] = {
-    routeAfterAuthentication: 'courses',
-    routeIfAlreadyAuthenticated: 'courses'
   }
 
   return ENV;

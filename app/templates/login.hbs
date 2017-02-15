@@ -1,3 +1,15 @@
-<h2 id="title">Login</h2>
+<form {{action "authenticate" on="submit"}}>
+  <div>
+    <label for="identification">E-mail</label><br />
+    {{input value=identification placeholder="E-mail" type="text" name="email"}}
+  </div>
 
-{{login-form}}
+  <div>
+    <label for="password">Password</label><br />
+    {{input value=password placeholder="Password" type="password" name="password"}}
+  </div>
+
+  <div>
+    <button type="submit">Log in</button>
+  </div>
+</form>
