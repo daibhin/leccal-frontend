@@ -12,12 +12,15 @@
   </ul>
   <div class="account-link flex-bottom">
 
+
     {{#if session.isAuthenticated}}
-      Hi, {{session.email}}
-      <button {{action 'invalidateSession'}}>Logout</button>
+      <button onclick={{action 'invalidateSession'}}>Logout</button>
+      {{#if currentUser.user}}
+        <p>Signed in as {{currentUser.user.name}}</p>
+      {{/if}}
     {{else}}
-      {{nav-item name='Account' icon='account' route='login'}}
-      {{#link-to "login"}}Login{{/link-to}}
+      <button onclick={{action 'login'}}>Login</button>
     {{/if}}
+
   </div>
 </div>
