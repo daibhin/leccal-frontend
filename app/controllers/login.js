@@ -9,14 +9,8 @@ export default Ember.Controller.extend({
     authenticate() {
       let { identification, password } = this.getProperties('identification', 'password');
       this.get('session').authenticate('authenticator:devise', identification, password)
-      // .then(() => {
-      //   let user = this.get('session.data.authenticated.current_user');
-      //   this.get('applicationController').set('currentUser', user);
-      //   this.get('store').queryRecord('user', user.id).then((currentUser) => {
-      //     currentUser.set('me', true);
-      //   });
-      // })
       .catch((reason) => {
+        debugger;
         this.set('errorMessage', reason.error || reason);
       });
     }
