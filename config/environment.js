@@ -24,13 +24,12 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    authorizer: 'authorizer:devise',
     crossOriginWhitelist: ['*'],
-    // authorizer: 'simple-auth-authorizer:devise',
-    routeAfterAuthentication: 'courses'
-  }
+    authorizer: 'simple-auth-authorizer:devise'
+  };
 
   ENV['simple-auth-devise'] = {
+    authorizer: 'devise',
     tokenAttributeName: 'token',
     identificationAttributeName: 'email'
   }
