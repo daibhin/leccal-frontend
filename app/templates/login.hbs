@@ -1,15 +1,27 @@
-<form {{action "authenticate" on="submit"}}>
-  <div>
-    <label for="identification">E-mail</label><br />
-    {{input value=identification placeholder="E-mail" type="text" name="email"}}
-  </div>
+<div class="content flex flex-center">
+  <div class="card card-login">
+    <div class="card-container-top">
+      <h3>LOGIN</h3>
+    </div>
+    <div class="card-container-bottom">
+      <div class="flex fill with_rows">
+        <form {{action "authenticate" on="submit"}} class="form-login flex fill with_columns">
+          <div>
+            <label for="identification">E-mail</label><br />
+            {{input value=identification placeholder="E-mail" type="text" name="email"}}
+          </div>
 
-  <div>
-    <label for="password">Password</label><br />
-    {{input value=password placeholder="Password" type="password" name="password"}}
-  </div>
+          <div>
+            <label for="password">Password</label><br />
+            {{input value=password placeholder="Password" type="password" name="password"}}
+          </div>
 
-  <div>
-    <button type="submit">Log in</button>
+          <div>
+            <button class="btn btn-primary mar__t__20" type="submit">Log in</button>
+          </div>
+        </form>
+        <div class="flex fill">Some content</div>
+      </div>
+    </div>
   </div>
-</form>
+</div>

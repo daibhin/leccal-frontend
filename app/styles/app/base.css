@@ -77,12 +77,28 @@ select:focus {
   margin-right: 10px;
 }
 
+.form-login {
+  border-right: 1px solid $light-grey;
+}
+
+.pad__r__30 {
+  padding: 0 30px 0 0;
+}
+
+.pad__l__30 {
+  padding: 0 0 0 30px;
+}
+
 .pad__lr__20 {
   padding: 0 20px;
 }
 
 .pad__b__20 {
   padding-bottom: 20px;
+}
+
+.mar__t__20 {
+  margin-top: 20px;
 }
 
 .content {
@@ -377,6 +393,11 @@ a {
 
 .card-titles-list-link.active {
   color: $primary-green;
+}
+
+.card-login {
+  width: 50%;
+  height: auto;
 }
 
 /* Search */
