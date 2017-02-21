@@ -1,0 +1,18 @@
+<div class="content flex fill with_columns">
+  <div class="scrolls">
+    <div class="list-container flex with_columns {{if usingWYSIWYG 'screen-height'}}">
+      {{search-bar}}
+      <div class="card-titles-container">
+        <ul class="card-titles-list">
+          <li>{{link-to 'Todos' 'projects.show.todos' project.id class="card-titles-list-link"}}</li>
+          <li>{{link-to 'Schedule' 'projects.show.schedule' project.id class="card-titles-list-link"}}</li>
+          <li>{{link-to 'Discussions' 'projects.show.discussions' project.id class="card-titles-list-link"}}</li>
+          <li>{{link-to 'Docs' 'projects.show.docs' project.id class="card-titles-list-link"}}</li>
+        </ul>
+      </div>
+      <div class="card flex with_columns fill">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>
