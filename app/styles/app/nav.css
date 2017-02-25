@@ -6,11 +6,10 @@
 }
 
 .title-btn {
-  display: inline;
   padding-top: 10px;
 }
 
-.title-btn h2 {
+.title-btn h4 {
   display: inline;
 }
 
@@ -29,4 +28,9 @@
 
 .account-link {
   padding-bottom: 10px;
+}
+
+.nav-back {
+  height: 18px;
+  width: 18px;
 }

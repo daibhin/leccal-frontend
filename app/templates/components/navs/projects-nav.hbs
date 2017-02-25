@@ -1,0 +1,14 @@
+<div class="nav flex with_columns">
+  {{navs/nav-header subheader='Projects'}}
+  <ul class="list flex with_columns">
+    {{#each projects as |project|}}
+      <li class="nav-item">
+        {{#link-to 'projects.show' project.id}}
+          <img src='assets/images/courses.svg' class="nav-icon">
+          <span class="nav-label">{{project.name}}</span>
+        {{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+  {{navs/account-link}}
+</div>

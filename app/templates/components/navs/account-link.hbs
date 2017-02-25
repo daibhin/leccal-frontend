@@ -1,0 +1,7 @@
+<div>
+  {{#if session.isAuthenticated}}
+    <button {{action 'invalidateSession'}}>Logout</button>
+  {{else}}
+    {{nav-item name='Account' icon='account' route='login'}}
+  {{/if}}
+</div>

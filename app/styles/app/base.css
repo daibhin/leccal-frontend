@@ -101,6 +101,10 @@ select:focus {
   margin-top: 20px;
 }
 
+.mar__r__15 {
+  margin-right: 15px;
+}
+
 .content {
   height: 100vh;
   background-color: #edf4f7;
@@ -442,4 +446,14 @@ a {
 .comment-box {
   width: 100%;
   margin-right: 15px;
+}
+
+
+
+
+.circle {
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
 }
