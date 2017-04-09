@@ -32,7 +32,7 @@ Router.map(function() {
 
   this.route('projects', function() {
     this.route('show', { path: ':project_id' }, function() {
-      this.route('todo');
+      this.route('todos');
       this.route('schedule');
       this.route('discussion');
       this.route('docs');

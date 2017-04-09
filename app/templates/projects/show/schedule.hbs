@@ -1,0 +1,13 @@
+<div class="list-container">
+
+  <div class="">
+    <button class='btn btn-primary'>Add deliverable</button>
+  </div>
+
+  {{#power-calendar
+    center=center
+    onCenterChange=(action (mut center) value="date") as |calendar|}}
+    {{calendar.nav}}
+    {{calendar.days}}
+  {{/power-calendar}}
+</div>

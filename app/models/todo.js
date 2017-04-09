@@ -2,6 +2,6 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  members: DS.hasMany('user'),
-  todos: DS.hasMany('todo'),
+  completed: DS.attr('boolean'),
+  project: DS.belongsTo('project'),
 });
