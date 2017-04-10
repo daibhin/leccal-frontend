@@ -11,30 +11,13 @@
 
 <ul class="list list-normal flex with_columns">
   {{#each model.assignments as |assignment|}}
-    {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
+    {{#link-to 'courses.show.assignments.show' assignment.id class='list-normal-item block'}}
       <span class="pre-link">{{assignment.dueDate}}</span>
       <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
-    {{/link-to}}
-    {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
-      <span class="pre-link">{{assignment.dueDate}}</span>
-      <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
-    {{/link-to}}
-    {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
-      <span class="pre-link">{{assignment.dueDate}}</span>
-      <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
+      <p>{{assignment.description}}</p>
     {{/link-to}}
   {{/each}}
 </ul>
-
-
-
-
-
-
-
 
 <div class="card-container">
   <div class="splitter flex fill flex-center">
@@ -48,17 +31,7 @@
     {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
       <span class="pre-link">{{assignment.dueDate}}</span>
       <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
-    {{/link-to}}
-    {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
-      <span class="pre-link">{{assignment.dueDate}}</span>
-      <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
-    {{/link-to}}
-    {{#link-to 'courses.show.assignments.show' assignment class='list-normal-item block'}}
-      <span class="pre-link">{{assignment.dueDate}}</span>
-      <h3>{{assignment.name}}</h3>
-      <p>The assignmet description will appear here</p>
+      <p>{{assignment.description}}</p>
     {{/link-to}}
   {{/each}}
 </ul>

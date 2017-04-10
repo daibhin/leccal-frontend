@@ -18,7 +18,9 @@ Router.map(function() {
   this.route('courses', function() {
     this.route('show', { path: ':course_id' }, function() {
       this.route('assignments', function() {
-        this.route('show', { path: ':assignment_id' });
+        this.route('show', { path: ':assignment_id' }, function() {
+          this.route('submit');
+        });
       });
       this.route('discussions', function() {
         this.route('topic', { path: ':topic_id' }, function() {

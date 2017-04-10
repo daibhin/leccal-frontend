@@ -4,7 +4,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend({
 
   model: function(params, transition) {
-    debugger;
     let course_id = transition.params.course_id;
     return this.store.createRecord('assignment', {course_id: course_id});
   },
