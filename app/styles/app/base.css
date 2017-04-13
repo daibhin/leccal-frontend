@@ -122,6 +122,10 @@ select:focus {
   position: relative;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .scrolls {
   overflow: scroll;
 }
@@ -315,6 +319,25 @@ a {
 
 .btn-small-option.selected {
   color: $primary-green;
+}
+
+.btn-back {
+  background-color: white;
+  border: 1px solid $light-grey;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px $light-grey;
+}
+
+.btn-back-img {
+  height: 20px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .assignments-list {

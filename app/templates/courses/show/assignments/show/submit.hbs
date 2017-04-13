@@ -1,9 +1,24 @@
+<div class="flex">
+  <div class="relative btn btn-back">
+    <img src='assets/images/left-arrow.svg' class="absolute btn-back-img">
+  </div>
+  <h3 class="flex fill">{{assignment.name}}</h3>
+</div>
 
-<h3>{{assignment.name}}</h3>
+{{#if hasNoSubmissions}}
+  <div class="flex flex-center with_columns">
+    <img src='assets/images/draw.svg' class="nav-icon">
+    <h3>You have yet to submit this assignment.</h3>
+    <p>You have 3 days to do so.</p>
+  </div>
+{{else}}
+  <ul class="list flex with_columns">
+  {{#each assignment.submissions as |submission|}}
+    <li class="nav-item">
+      {{submission.submitter.email}}
+    </li>
+  {{/each}}
+  </ul>
+{{/if}}
 
-<p>Select file for submission:</p>
-
-
-<p>Choose group members:</p>
-
-<button class='btn btn-primary' {{action "submitAssignment"}}>Submit</button>
+<button class='btn btn-primary' {{action "submitAssignment"}}>Start submission</button>

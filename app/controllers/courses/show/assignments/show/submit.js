@@ -6,6 +6,8 @@ export default Ember.Controller.extend({
   currentUser: Ember.computed.reads('sessionAccount.user'),
   assignment: Ember.computed.reads('model'),
 
+  hasNoSubmissions: Ember.computed.empty('assignment.submissions'),
+
   actions: {
     submitAssignment() {
       this.get('ajax').request('api/v1/assignments/submit', {
@@ -15,6 +17,8 @@ export default Ember.Controller.extend({
           user_id: this.get('currentUser.id')
         }
       }).then((response) => {
+        debugger;
+      }).catch((response) => {
         debugger;
       });
     }

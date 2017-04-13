@@ -6,4 +6,5 @@ export default DS.Model.extend({
   startDate: DS.attr('date'),
   dueDate: DS.attr('date'),
   course: DS.belongsTo('course'),
+  submissions: DS.hasMany('submission'),
 });
