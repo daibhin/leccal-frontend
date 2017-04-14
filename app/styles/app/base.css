@@ -225,7 +225,7 @@ select:focus {
   background-color: #f5f5f5;
 }
 
-a {
+a, a:hover, a:active, a:link, a:visited {
   text-decoration: none;
 }
 
@@ -328,7 +328,11 @@ a {
   height: 35px;
   width: 35px;
   margin: 10px;
-  box-shadow: 2px 2px 2px $light-grey;
+  box-shadow: 1px 1px 5px $light-grey;
+}
+
+.btn-back:hover {
+  box-shadow: 1px 1px 10px $light-grey;
 }
 
 .btn-back-img {

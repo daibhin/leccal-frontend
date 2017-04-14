@@ -1,6 +1,11 @@
 <div class="assignment-container">
-  <div class="flex end">
-  {{link-to 'Create Submission' 'courses.show.assignments.show.submit' class='btn btn-primary'}}
+  <div class="flex flex-center">
+    <div class="flex fill">
+      {{back-btn route='courses.show.assignments.show' params=assignment}}
+    </div>
+    <div class="flex end">
+    {{link-to 'Create Submission' 'courses.show.assignments.show.submit' class='btn btn-primary'}}
+    </div>
   </div>
   <div class="assignment-header">
     <h3>{{model.name}}</h3>

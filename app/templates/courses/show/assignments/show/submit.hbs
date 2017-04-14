@@ -1,7 +1,5 @@
 <div class="flex">
-  <div class="relative btn btn-back">
-    <img src='assets/images/left-arrow.svg' class="absolute btn-back-img">
-  </div>
+  {{back-btn route='courses.show.assignments.show' params=assignment}}
   <h3 class="flex fill">{{assignment.name}}</h3>
 </div>
 
@@ -9,7 +7,7 @@
   <div class="flex flex-center with_columns">
     <img src='assets/images/draw.svg' class="nav-icon">
     <h3>You have yet to submit this assignment.</h3>
-    <p>You have 3 days to do so.</p>
+    <p>You have {{moment-to-now assignment.dueDate now hidePrefix=true}} to do so</p>
   </div>
 {{else}}
   <ul class="list flex with_columns">

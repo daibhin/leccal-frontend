@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import momentComputed from 'ember-moment/computeds/moment';
+import fromNow from 'ember-moment/computeds/from-now';
 
 export default Ember.Controller.extend({
   ajax: Ember.inject.service(),
@@ -7,7 +9,7 @@ export default Ember.Controller.extend({
   assignment: Ember.computed.reads('model'),
 
   hasNoSubmissions: Ember.computed.empty('assignment.submissions'),
-
+  
   actions: {
     submitAssignment() {
       this.get('ajax').request('api/v1/assignments/submit', {
