@@ -1,8 +1,12 @@
-<div class="card-container">
-  <div class="flex end">
-  {{link-to 'New Assignment' 'assignments.new' (query-params course_id=model.id) class='btn btn-primary'}}
+<div class="assignment-container">
+  <div class="flex fill">
+    <div class="flex end">
+    {{link-to 'New Assignment' 'assignments.new' (query-params course_id=model.id) class='btn btn-primary'}}
+    </div>
   </div>
+</div>
 
+<div class="card-container">
   <div class="splitter flex fill flex-center">
     <span class="splitter-text">Active</span>
     <span class="flex fill splitter-line"></span>

@@ -1,7 +1,7 @@
 <div class="assignment-container">
   <div class="flex flex-center">
     <div class="flex fill">
-      {{back-btn route='courses.show.assignments.show' params=assignment}}
+      {{back-btn route='courses.show.assignments' params=model.course}}
     </div>
     <div class="flex end">
     {{link-to 'Create Submission' 'courses.show.assignments.show.submit' class='btn btn-primary'}}
@@ -11,4 +11,26 @@
     <h3>{{model.name}}</h3>
     <p>{{assignment.description}}</p>
   </div>
+
+  {{title-splitter title='Submissions'}}
+  {{#if hasNoSubmissions}}
+    <div class="flex flex-center with_columns">
+      <img src='assets/images/draw.svg' class="nav-icon">
+      <h3>You have yet to submit this assignment.</h3>
+      <p>You have {{moment-to-now model.dueDate now hidePrefix=true}} to do so</p>
+    </div>
+  {{else}}
+    <div class="flex with_rows btn-tab-container">
+      {{#each model.submissions as |item index|}}
+      <button class="flex fill btn btn-tab {{if (eq item activeSubmission) 'active'}}" {{action "submissionClicked" item}}>
+        {{index}}
+      </button>
+      {{/each}}
+    </div>
+    {{#if activeSubmission}}
+      <div>
+        <p>Submitted by: {{activeSubmission.submitter.email}}</p>
+      </div>
+    {{/if}}
+  {{/if}}
 </div>

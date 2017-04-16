@@ -3,20 +3,12 @@
   <h3 class="flex fill">{{assignment.name}}</h3>
 </div>
 
-{{#if hasNoSubmissions}}
-  <div class="flex flex-center with_columns">
-    <img src='assets/images/draw.svg' class="nav-icon">
-    <h3>You have yet to submit this assignment.</h3>
-    <p>You have {{moment-to-now assignment.dueDate now hidePrefix=true}} to do so</p>
+<form class="flex with_columns" {{action "submitAssignment" on="submit"}}>
+  <div class="flex flex-center">
+    <label for="members">Members:</label>
+    <div class="flex fill">
+      {{input value=memberIds placeholder="Comma seperate group members by Id number" class='input-full'}}
+    </div>
   </div>
-{{else}}
-  <ul class="list flex with_columns">
-  {{#each assignment.submissions as |submission|}}
-    <li class="nav-item">
-      {{submission.submitter.email}}
-    </li>
-  {{/each}}
-  </ul>
-{{/if}}
-
-<button class='btn btn-primary' {{action "submitAssignment"}}>Start submission</button>
+  <button type='submit' class='btn btn-primary'>Submit</button>
+</form>

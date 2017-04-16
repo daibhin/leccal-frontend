@@ -45,6 +45,10 @@ input, select {
   width: 250px;
 }
 
+.input-full {
+  width: 100%;
+}
+
 textarea {
   width: 500px;
   resize: none;
@@ -344,6 +348,25 @@ a, a:hover, a:active, a:link, a:visited {
   bottom: 0;
 }
 
+.btn-tab {
+  padding: 10px;
+  border-radius: 0px;
+  background-color: $light-grey;
+  border-right: 1px solid $medium-grey;
+}
+
+.btn-tab.active {
+  background-color: $medium-grey;
+}
+
+.btn-tab-container > :first-child {
+  border-top-left-radius: 3px;
+}
+.btn-tab-container > :last-child {
+  border-top-right-radius: 3px;
+  border-right: none;
+}
+
 .assignments-list {
   margin-bottom: 33px;
 }
@@ -366,7 +389,6 @@ a, a:hover, a:active, a:link, a:visited {
 .assignment-header {
   padding: 20px;
   background-color: #fcfdfd;
-  border-bottom: 1px solid #dbe2e5;
 }
 
 .assignment-body {

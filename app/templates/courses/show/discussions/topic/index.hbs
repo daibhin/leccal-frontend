@@ -1,13 +1,8 @@
 <div class="card-container">
-
   <div class="flex end">
   {{link-to 'New Post' 'courses.show.discussions.topic.new' (query-params topic_id=model.id) class='btn btn-primary'}}
   </div>
-
-  <div class="splitter flex fill flex-center">
-    <span class="splitter-text">Posts</span>
-    <span class="flex fill splitter-line"></span>
-  </div>
+  {{list-splitter name='Posts'}}
 </div>
 
 <ul class="list list-normal flex with_columns">

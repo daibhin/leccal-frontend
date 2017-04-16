@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  project: DS.belongsTo('assignment'),
+  assignment: DS.belongsTo('assignment'),
   submitter:  DS.belongsTo('user'),
+  members:  DS.hasMany('user', { async: true }),
 });
