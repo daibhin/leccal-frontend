@@ -6,8 +6,9 @@
 <form class="flex with_columns" {{action "submitAssignment" on="submit"}}>
   <div class="flex flex-center">
     <label for="members">Members:</label>
-    <div class="flex fill">
+    <div class="flex fill with_columns">
       {{input value=memberIds placeholder="Comma seperate group members by Id number" class='input-full'}}
+      {{submissionMemberList}}
     </div>
   </div>
   <button type='submit' class='btn btn-primary'>Submit</button>

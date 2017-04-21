@@ -10,7 +10,7 @@ export default AjaxService.extend({
       let authenticatedSession = this.get('session.session.authenticated');
       let authToken = authenticatedSession.token;
       let email = authenticatedSession.email;
-      if (session && authToken) {
+      if (authenticatedSession && authToken) {
         this.get('session').authorize('authorizer:devise', (headerName, headerValue) => {
           headers[headerName] = headerValue;
         });
