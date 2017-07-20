@@ -10,5 +10,13 @@
       </li>
     {{/each}}
   </ul>
+  {{#if showingCreateForm}}
+    <form {{action 'createProject' on="submit"}} class="flex">
+      {{input type="text" placeholder="Name" value=newProjectName class="one-line-form--input"}}
+      <button type="submit" class="btn" {{action "createProject"}}>L</button>
+    </form>
+  {{else}}
+    <button class='btn btn-secondary' {{action "toggleCreateForm"}}>Create Project</button>
+  {{/if}}
   {{navs/account-link}}
 </div>

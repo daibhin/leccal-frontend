@@ -85,6 +85,10 @@ select:focus {
   border-right: 1px solid $light-grey;
 }
 
+.one-line-form--input {
+  width: 100%;
+}
+
 .pad__r__30 {
   padding: 0 30px 0 0;
 }

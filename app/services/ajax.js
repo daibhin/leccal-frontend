@@ -6,10 +6,8 @@ export default AjaxService.extend({
   headers: Ember.computed('session.authToken', {
     get() {
       let headers = {};
-      debugger;
       let authenticatedSession = this.get('session.session.authenticated');
       let authToken = authenticatedSession.token;
-      let email = authenticatedSession.email;
       if (authenticatedSession && authToken) {
         this.get('session').authorize('authorizer:devise', (headerName, headerValue) => {
           headers[headerName] = headerValue;
